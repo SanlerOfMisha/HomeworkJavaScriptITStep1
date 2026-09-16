@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер контактів</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">Node.js + ECMAScript</p>
+            <h1>Менеджер контактів</h1>
+        </div>
+        <button class="secondary-button" id="load-imports-button" type="button">Завантажити користувачів</button>
+    </header>
+
+    <main class="layout">
+        <section class="panel editor-panel" aria-labelledby="form-title">
+            <h2 id="form-title">Новий контакт</h2>
+            <form id="contact-form" novalidate>
+                <input type="hidden" id="contact-id">
+
+                <label>
+                    Ім'я
+                    <input id="name" name="name" type="text" autocomplete="name" required>
+                </label>
+
+                <label>
+                    Телефон
+                    <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                </label>
+
+                <label>
+                    Email
+                    <input id="email" name="email" type="email" autocomplete="email" required>
+                </label>
+
+                <label>
+                    Компанія
+                    <input id="company" name="company" type="text" autocomplete="organization">
+                </label>
+
+                <label class="checkbox-row">
+                    <input id="favorite" name="favorite" type="checkbox">
+                    <span>Обраний контакт</span>
+                </label>
+
+                <p class="form-message" id="form-message" role="alert"></p>
+
+                <div class="actions">
+                    <button id="save-button" type="submit">Додати контакт</button>
+                    <button class="ghost-button" id="reset-button" type="button">Очистити</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="content">
+            <div class="toolbar">
+                <label class="search-field">
+                    Пошук
+                    <input id="search" type="search" placeholder="Ім'я, email, телефон або компанія">
+                </label>
+
+                <label class="toggle-row">
+                    <input id="favorite-filter" type="checkbox">
+                    <span>Тільки обрані</span>
+                </label>
+            </div>
+
+            <section class="panel" aria-labelledby="contacts-title">
+                <div class="panel-heading">
+                    <h2 id="contacts-title">Контакти</h2>
+                    <span id="contacts-count">0</span>
+                </div>
+                <div class="contacts-list" id="contacts-list"></div>
+            </section>
+
+            <section class="panel" aria-labelledby="groups-title">
+                <h2 id="groups-title">Групування за компанією</h2>
+                <div class="groups-list" id="groups-list"></div>
+            </section>
+
+            <section class="panel" aria-labelledby="imports-title">
+                <div class="panel-heading">
+                    <h2 id="imports-title">Імпорт із API</h2>
+                    <span id="imports-count">0</span>
+                </div>
+                <div class="imports-list" id="imports-list"></div>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
